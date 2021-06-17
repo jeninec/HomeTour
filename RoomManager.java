@@ -4,11 +4,24 @@ import fixtures.Room;
 
 public class RoomManager {
 
-	protected Room startingRoom;
-	protected Room[] rooms = new Room[9];
-	protected boolean gameRunning = true;
+	private Room startingRoom;
+	private Room[] rooms;
+	//protected boolean gameRunning = true;
 
+	public RoomManager(int count) {
+		super();
+		rooms = new Room[count];
+	}
+	
+	/*
+	 * init() method controls 
+	 * - room creation
+	 * - exit selection
+	 */
 	public void init() {
+		//while (gameRunning) {
+			//play game until gameRunning is false
+		
 		// create rooms in the house
 		Room foyer = new Room(
 				"The Foyer",
@@ -18,7 +31,6 @@ public class RoomManager {
 				+ "To the north is a small room, where you can see a piano."); // change long description
 		
 		this.rooms[0] = foyer;
-		//this.startingRoom = foyer;
 		
 		
 		Room living = new Room(
@@ -78,7 +90,7 @@ public class RoomManager {
 		this.rooms[8] = garage;
 		
 		//set the starting room to the living room
-		this.startingRoom = bathroom;
+		this.startingRoom = kitchen;
 		
 		// setting exits to create home layout
 		foyer.setExits(new Room[] {null, null, living, null});
@@ -91,5 +103,23 @@ public class RoomManager {
 		bedroom.setExits(new Room[] {walkIn, null, null, kitchen});
 		walkIn.setExits(new Room[] { null, bedroom, null, null});
 		
+		
+	}
+	
+	//getters and setters
+	public Room getStartingRoom() {
+		return startingRoom;
+	}
+
+	public void setStartingRoom(Room startingRoom) {
+		this.startingRoom = startingRoom;
+	}
+
+	public Room[] getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(Room[] rooms) {
+		this.rooms = rooms;
 	}
 }
