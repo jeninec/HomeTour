@@ -25,13 +25,15 @@ public class Displays {
 	public void printInstructions() {
 		System.out.println( "~~~~~~~~~~ INSTRUCTIONS ~~~~~~~~~~" +
 				"\nHere are the rules of the game: " +
-				"\nActions: go, quit" +
+				"\nActions: go, see, on, off" +
 				"\nDirections: north, south, east and west" +
 				"\nUse the command 'go' and whichever direction you choose" +
 				" to navigate through the house." + 
 				"\nLike this: 'go east'" +
-				"\nType 'quit' to end the game anywhere.\n"
-				); //"\nType quit at entrances and exits to leave the house"
+				"\nType 'see' to see all the items in the current room.\n"
+				); //"\nType 'interact' to interact with items in the room.\n"
+		//"\nType 'quit' to end the game anywhere.\n"
+		//"\nType quit at entrances and exits to leave the house"
 	}
 	
 	

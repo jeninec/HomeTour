@@ -58,7 +58,8 @@ public class RoomManager {
 				"The sleek and modern living room with a white leather sofa and a crystal ceiling light fixture."
 				+ "\n A bathroom with floor to ceiling tiles and a claw-foot soaker tub is to the east." 
 						+ "\n The hardwood floor leads south to an archway, through it a formal dining room with"
-						+ "\n a long redwood table. To the north is a bedroom, in it a stunninng oak bedframe." // change long description
+						+ "\n a long redwood table. To the north is a bedroom, in it a stunninng oak bedframe." 
+						+ "\n To the west a large entryway of an eastern traditonal mansion."
 				);
 		this.rooms[1] = living;
 		Furniture sofa = new Furniture(
@@ -68,13 +69,13 @@ public class RoomManager {
 				);
 		Furniture chaise = new Furniture(
 				"recliner",
-				"a chaise lounge",
-				"a long bench under the dining room table"
+				"a pink chaise lounge",
+				"a pink chaise lounge"
 				);
 		Appliances tv = new Appliances(
 				"tv",
-				"a stainless steel oven",
-				"an LG stainless steel oven"
+				"a plasma flat screen tv",
+				"a plasma flat screen tv"
 				);
 		Appliances light2 = new Appliances(
 				"light",
@@ -142,8 +143,8 @@ public class RoomManager {
 				);
 		Appliances chandelier = new Appliances(
 				"chandelier",
-				"a grey coffee maker",
-				"a grey Keruig a grey coffee maker"
+				"a golden chandelier",
+				"a golden chandelier"
 				);
 		Fixture[] dinItems = {diningTable, bench1, bench2, chandelier};
 		dining.setItems(dinItems);
@@ -184,9 +185,9 @@ public class RoomManager {
 		Room walkIn = new Room(
 				"The walk in closet",
 				"a very spacious walk in closet",
-				"A very spacious walk in closet, in it a long custom redwood table and a golden chandelier. "+ "\n"
-						+ "From here, there is a sleek modern livng room to the north." + "\n"
-						+ "To the east is a newly renovated kitchen with marble countertops."
+				"A very spacious walk in closet, in it a solid mirror wall and a shoe carousel. "+ "\n"
+						+ "The cream colored carpet leads out to the bedroom, where there is "+ "\n"
+						+ "an Alaskan king bed and a large mahogany desk."
 				);	
 		this.rooms[5] = walkIn;
 		Clothing dress = new Clothing(
@@ -226,9 +227,9 @@ public class RoomManager {
 		Room bathroom = new Room(
 				"The Bathroom",
 				"an elegant bathroom",
-				"A formal dining room, in it a long custom redwood table and a golden chandelier. "+ "\n"
-						+ "From here, there is a sleek modern livng room to the north." + "\n"
-						+ "To the east is a newly renovated kitchen with marble countertops."
+				 "A bathroom with a claw-foot soaker tub and floor to ceiling tiles."+ "\n"
+						+ "From here, there is a sleek modern livng room to the west." + "\n"
+						+ "To the south is a newly renovated kitchen with marble countertops."
 				);
 		this.rooms[6] = bathroom;
 		

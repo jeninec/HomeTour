@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import fixtures.Fixture;
 import fixtures.Room;
+import fixtures.Appliances;
 
 public class Input {
 	
@@ -52,6 +53,14 @@ public class Input {
 			//System.out.println("In see switch");
 				break;	
 				
+			case ("ON"):
+				interact(p,action);
+				break;
+				
+			case ("OFF"):
+				interact(p,action);
+				break;
+				
 			case ("QUIT"):
 				//return false;
 				quitGame();
@@ -72,8 +81,32 @@ public class Input {
 		if (p.getCurrentRoom().getItems() != null) {
 			Fixture[] roomItems = p.getCurrentRoom().getItems();
 			System.out.println("This room has: ");
+			
 			for (int f=0; f< roomItems.length; f++) {
 				System.out.println(roomItems[f].shortDesc + " ");
+				if (roomItems[f] instanceof Appliances) {
+					System.out.println("   *can turn on and off");
+					//((Appliances) roomItems[f]).powerOn();
+				}
+				
+			}
+			System.out.println("\n");
+		}
+	}
+	
+	private static void interact(Player p, String state) {
+		
+		if (p.getCurrentRoom().getItems() != null) {
+			Fixture[] roomItems = p.getCurrentRoom().getItems();
+			
+			for (int f=0; f< roomItems.length; f++) {
+				if (roomItems[f] instanceof Appliances && state == "ON") {
+					((Appliances) roomItems[f]).powerOn();
+				}
+				if (roomItems[f] instanceof Appliances && state == "OFF") {
+					((Appliances) roomItems[f]).powerOff();
+				}
+				
 			}
 			System.out.println("\n");
 		}
