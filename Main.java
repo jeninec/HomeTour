@@ -6,17 +6,16 @@ import fixtures.Room;
 
 public class Main {
 	
-	private static RoomManager manager = new RoomManager();
+	private static RoomManager manager = new RoomManager(9);
 	
 	public static void main(String[] args) {
-		
+		//manager.gameRunning = true;
 		//start the game, load the rooms
 		manager.init();
 		// create a player
 		Player p = new Player();
-		//System.out.println(manager.startingRoom);
-		p.setCurrentRoom(manager.startingRoom);
-		System.out.println(p.getCurrentRoom().name);
+		p.setCurrentRoom(manager.getStartingRoom());
+		
 		printRoom(p);
 		
 		//ask for player input
@@ -60,6 +59,7 @@ public class Main {
 		switch (command[0]) {
 			case ("go"):
 				System.out.println("Here we go...");
+				break;
 			
 		}
 		
@@ -69,13 +69,13 @@ public class Main {
 			
 		case ( "north"):
 			System.out.println("N");
-			if (exits[0] != null) {
-				p.setCurrentRoom(exits[0]);
+			if (currRoom.getExit("north") != null) {
+				p.setCurrentRoom(currRoom.getExit("north"));
 				System.out.println("N-if");
 				printRoom(p);
-				
+				break;
 			}
-			else if (exits[0] == null){
+			else if (currRoom.getExit("north") == null){
 				System.out.println("Sorry there's no room in that direction." + "\n" + 
 					"Please select another direction.");
 				//printRoom(p);
@@ -87,6 +87,7 @@ public class Main {
 			if (exits[1] != null) {
 				p.setCurrentRoom(exits[1]);
 				printRoom(p);
+				break;
 			}
 			else if (exits[1] == null){
 				System.out.println("Sorry there's no room in that direction." + "\n" + 
@@ -99,6 +100,7 @@ public class Main {
 			if (exits[2] != null) {
 				p.setCurrentRoom(exits[2]);
 				printRoom(p);
+				break;
 			}
 			else if (exits[2] != null){
 				System.out.println("Sorry there's no room in that direction." + "\n" + 
@@ -113,6 +115,7 @@ public class Main {
 			if (exits[3] != null) {
 				p.setCurrentRoom(exits[3]);
 				printRoom(p);
+				break;
 				//manager.init();
 			}
 			else if (exits[3] == null){

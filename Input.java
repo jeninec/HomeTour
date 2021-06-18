@@ -49,7 +49,7 @@ public class Input {
 			case ("SEE"):
 				
 				seeItems(p);
-			System.out.println("In see switch");
+			//System.out.println("In see switch");
 				break;	
 				
 			case ("QUIT"):
@@ -71,10 +71,11 @@ public class Input {
 		
 		if (p.getCurrentRoom().getItems() != null) {
 			Fixture[] roomItems = p.getCurrentRoom().getItems();
-			System.out.println("This room has : ");
+			System.out.println("This room has: ");
 			for (int f=0; f< roomItems.length; f++) {
-				System.out.println(roomItems[f].name + " ");
+				System.out.println(roomItems[f].shortDesc + " ");
 			}
+			System.out.println("\n");
 		}
 	}
 
