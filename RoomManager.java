@@ -1,5 +1,7 @@
 package game;
 
+import fixtures.Clothing;
+import fixtures.Fixture;
 import fixtures.Room;
 
 public class RoomManager {
@@ -67,6 +69,15 @@ public class RoomManager {
 				""// add long description
 				);	
 		this.rooms[5] = walkIn;
+		Clothing shirt = new Clothing(
+				"dress",
+				"a little black dress",
+				""// add long description
+				);
+		Fixture[] walkInItems = {shirt};
+		walkIn.setItems(walkInItems);
+		System.out.println("walk in items: "+walkInItems.toString());
+		
 		
 		Room bathroom = new Room(
 				"The Bathroom",
@@ -90,7 +101,7 @@ public class RoomManager {
 		this.rooms[8] = garage;
 		
 		//set the starting room to the living room
-		this.startingRoom = kitchen;
+		this.startingRoom = bedroom;
 		
 		// setting exits to create home layout
 		foyer.setExits(new Room[] {null, null, living, null});
@@ -100,7 +111,7 @@ public class RoomManager {
 		kitchen.setExits(new Room[] {bathroom, garage, null, dining});
 		garage.setExits(new Room[] {kitchen, null, null, null});
 		bathroom.setExits(new Room[] {null, kitchen, bedroom, living});
-		bedroom.setExits(new Room[] {walkIn, null, null, kitchen});
+		bedroom.setExits(new Room[] {walkIn, null, null, bathroom});
 		walkIn.setExits(new Room[] { null, bedroom, null, null});
 		
 		

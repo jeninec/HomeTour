@@ -2,15 +2,15 @@ package game;
 
 import java.util.Scanner;
 
+import fixtures.Fixture;
 import fixtures.Room;
 
 public class Input {
 	
-	// create display for printing rooms
-	private static Displays display = new Displays();
-	
 	//create Scanner for game input
 	private static Scanner sc = new Scanner(System.in);
+	
+	public static boolean running = true;
 	
 	public static String[] collectInput() { 
 		 String input = sc.nextLine();
@@ -22,40 +22,60 @@ public class Input {
 	public static void parse (String[] command, Player p) {
 		
 		String action = command[0].toUpperCase().intern();
-		System.out.println("act in In: "+action);
+		
+		
 		switch (action) {
 			case ("GO"):
 				System.out.println("\nHere we go...");
+			if (command.length>1 && running) {
+				String dir = command[1].toUpperCase().intern();
+				Room currRoom = p.getCurrentRoom();
+
+				if  (currRoom.getExit(dir) != null) {
+					p.setCurrentRoom(currRoom.getExit(dir));
+				}
+				else {
+					System.out.println("Sorry there's no room in that direction\n" + 
+							"Please select another direction.\n"
+							+ "~~~~~~~~~~  TRY AGAIN ~~~~~~~~~~");
+				}
+				
+			}
 				break;
-			case ("quit"):
-				 //gameRunning = false;
+			case ("PUT"):
+				System.out.println("Try it on!");
 				break;
+				
+			case ("SEE"):
+				
+				seeItems(p);
+			System.out.println("In see switch");
+				break;	
+				
+			case ("QUIT"):
+				//return false;
+				quitGame();
+				//break;
 			
 		}
-		
-		Room currRoom = p.getCurrentRoom();
-		
-		/* Right now we've refactored room assignment to one if statement  
-		 * but currently getting null pointer on line 47! I'm not sure which is null
-		 * current Room (variable currRoom) or the getExit method is returning null
-		 */
-		
-		String dir = command[1].toUpperCase().intern();
-		
-		Room moveTo = currRoom.getExit(dir);
+	
 		
 		
-		if  (currRoom.getExit(dir) != null) {
-			p.setCurrentRoom(currRoom.getExit(dir));
+	}
+	
+	public static boolean quitGame() {
+		return false;
+	}
+	
+	private static void seeItems(Player p) {
+		
+		if (p.getCurrentRoom().getItems() != null) {
+			Fixture[] roomItems = p.getCurrentRoom().getItems();
+			System.out.println("This room has : ");
+			for (int f=0; f< roomItems.length; f++) {
+				System.out.println(roomItems[f].name + " ");
+			}
 		}
-		else {
-			System.out.println("Sorry there's no room in that direction\n" + 
-					"Please select another direction.\n"
-					+ "~~~~~~~~~~  TRY AGAIN ~~~~~~~~~~");
-		}
-		
-		//sc.close();
 	}
 
-	
 }

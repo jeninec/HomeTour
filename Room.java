@@ -29,13 +29,13 @@ public class Room extends Fixture{
 	//takes a string direction and returns the room at that exit
 	public Room getExit(String dir) {
 		
-		if (dir == "north") {
+		if (dir == "NORTH") {
 			return this.exits[0];
 		}
-		if (dir == "south") {
+		if (dir == "SOUTH") {
 			return this.exits[1];
 		}
-		if (dir == "east") {
+		if (dir == "EAST") {
 			return this.exits[2];
 		}
 		if (dir == "WEST") {

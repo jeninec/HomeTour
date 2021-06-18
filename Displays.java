@@ -18,7 +18,7 @@ public class Displays {
 			}
 		}
 				
-		System.out.println("\n" + "Where would you like to go next?");
+		System.out.println("\n" + "What would you like to do next?");
 		
 	}
 	
